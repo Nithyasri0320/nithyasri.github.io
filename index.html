@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nithyasri's Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --rose: #e8637a;
+      --blush: #f5c6cf;
+      --cream: #fdf6f0;
+      --deep: #2b1a1f;
+      --muted: #8a6a6e;
+      --card: #fff8f5;
+    }
+
+    body {
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--deep);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Background blobs */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, #f5c6cf88, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+      animation: float 6s ease-in-out infinite;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -80px; left: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, #fde8b088, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+
+    .avatar {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose), #f4a0b0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 52px;
+      box-shadow: 0 8px 32px #e8637a44;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 8px 32px #e8637a44; }
+      50% { box-shadow: 0 8px 48px #e8637a88; }
+    }
+
+    .badge {
+      position: absolute;
+      bottom: 4px; right: 4px;
+      background: white;
+      border-radius: 50%;
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      box-shadow: 0 2px 8px #0002;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    h1 span {
+      color: var(--rose);
+      font-style: italic;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    /* Divider */
+    .divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 40px 0 32px;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1;
+      height: 1px; background: var(--blush);
+    }
+    .divider span { font-size: 18px; }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border: 1px solid #f0dde0;
+      border-radius: 20px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 16px #e8637a0d;
+      animation: fadeUp 0.8s ease both;
+    }
+    .card:nth-child(2) { animation-delay: 0.1s; }
+    .card:nth-child(3) { animation-delay: 0.2s; }
+    .card:nth-child(4) { animation-delay: 0.3s; }
+    .card:nth-child(5) { animation-delay: 0.4s; }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--rose);
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .card p {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: #5a3a3f;
+    }
+
+    /* Hobbies */
+    .hobbies {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+
+    .hobby-tag {
+      background: linear-gradient(135deg, #fde8e8, #fdf0f5);
+      border: 1px solid #f5c6cf;
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 0.88rem;
+      color: var(--rose);
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+    .hobby-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px #e8637a22;
+    }
+
+    /* Quote */
+    .quote-card {
+      background: linear-gradient(135deg, var(--rose), #c94f65);
+      border: none;
+      color: white;
+    }
+    .quote-card .card-title { color: #ffd6dc; }
+    .quote-card p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: white;
+      line-height: 1.7;
+    }
+    .quote-card .author {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      font-style: normal;
+      font-family: 'DM Sans', sans-serif;
+      color: #ffd6dc;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      animation: fadeUp 0.8s 0.5s ease both;
+    }
+    .footer span { color: var(--rose); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="avatar-wrap">
+        <div class="avatar">🌸</div>
+        <div class="badge">✨</div>
+      </div>
+      <h1>Hi, I'm <span>Nithyasri!</span></h1>
+      <p class="tagline">Curious learner · Creative thinker · Chennai 🌴</p>
+    </div>
+
+    <!-- About -->
+    <div class="card">
+      <div class="card-title">🌷 About Me</div>
+      <p>Hey there! I'm Nithyasri, a curious and creative person from Chennai. I love learning new things and exploring the world around me. Every day is a new adventure!</p>
+    </div>
+
+    <div class="divider"><span>🌸</span></div>
+
+    <!-- Hobbies -->
+    <div class="card">
+      <div class="card-title">🎨 My Hobbies</div>
+      <div class="hobbies">
+        <span class="hobby-tag">🎵 Music</span>
+        <span class="hobby-tag">📚 Reading</span>
+        <span class="hobby-tag">🌍 Travelling</span>
+        <span class="hobby-tag">🍕 Foodie</span>
+        <span class="hobby-tag">🎨 Art</span>
+        <span class="hobby-tag">💻 Tech</span>
+      </div>
+    </div>
+
+    <!-- Skills / Fun facts -->
+    <div class="card">
+      <div class="card-title">⚡ Fun Facts About Me</div>
+      <p>🌙 I'm a night owl who loves stargazing<br>
+         ☕ Tea over coffee, always!<br>
+         🐾 Total animal lover<br>
+         🌺 Chennai is my heart, the world is my playground</p>
+    </div>
+
+    <!-- Quote -->
+    <div class="card quote-card">
+      <div class="card-title">💬 My Favourite Quote</div>
+      <p>"The best time to start is now. The second best time is also now."</p>
+      <p class="author">— A wise person 😊</p>
+    </div>
+
+    <div class="footer">
+      Made with <span>♥</span> by Nithyasri &nbsp;·&nbsp; Chennai, India 🇮🇳
+    </div>
+
+  </div>
+</body>
+</html>
